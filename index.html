@@ -59,7 +59,8 @@
                 </div>
                 <div class="column right">
                     <div class="text">I'm Ankit and I'm a <span class="typing-2"></span></div>
-                    <p>My self Ankit Gupta I'm pursuing Computer science Engineering from REC GONDA. I am hoping for my bright future from the course from this college.
+                    <p>My self Ankit Gupta I'm pursuing Computer science Engineering from REC GONDA. I am hoping for my
+                        bright future from the course from this college.
 
                     </p>
                     <!-- <a href="#">Download CV</a> -->
@@ -107,8 +108,10 @@
                 <div class="column left">
                     <div class="text">My creative skills & experiences.</div>
                     <p>These are the skills which I acquired till date.
-                        And counting many more , as i did'nt mastered any of the language till now I am targeting to this upcoming December to master any one language.
-                        Talking about experiences i do not have any kind of experience till date and I'm finding an opportunity to gain some experience. 
+                        And counting many more , as i did'nt mastered any of the language till now I am targeting to
+                        this upcoming December to master any one language.
+                        Talking about experiences i do not have any kind of experience till date and I'm finding an
+                        opportunity to gain some experience.
                     </p>
                     <a href="#">Read more</a>
                 </div>
@@ -147,9 +150,9 @@
                             <span>70%</span>
                         </div>
                         <div class="line mysql"></div> -->
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -233,7 +236,7 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="submit-to-google-sheet">
+                    <form name="submit-to-google-sheet">
                         <div class="fields">
                             <div class="field name">
                                 <input type="text" placeholder="Name" required>
@@ -264,7 +267,17 @@
     </footer>
 
     <script src="script.js"></script>
-    
+    <script>
+        const scriptURL = 'https://script.google.com/macros/u/1/s/AKfycbx2o3XSQ7xbkhfoydrAa-AtKwfNb7-iZ-fmCGStKACa1qD3KXBlDiEjIIa4QfmU1C_rVg/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 
 </html>
